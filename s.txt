@@ -1,0 +1,11 @@
+tblUniversity - institutionid, name, telephone, shortname, webaddress, timezoneid, ObservesDayLightSav, IsBusinessSchool, IsAcademic, Status
+
+tblTimeZone - TimeZoneId, TimeZone, GMT, Offset
+
+tblExamGroup - ExamGrpID, InstitutionId, Place, ExamDateTime, ExamID, ExamPassword, MaxNumberOfTakers
+
+tblExamTaker - TakerID, CandidateID, ExamGrpID, ExamOrderNumber, RegistrationTime, StartTime, RawScore, UniversityID, ExamStatusID, InstituttionRank, InstitutionPercentile, OverallRank
+
+tblExamStatus - ExamStatusID, status, Description
+
+select * from tblUniversity, tblExamGroup, tblExamStatus, tblExamTaker where tblUniversity.InstitutionID=tblExamGroup.InstitutionID AND tblExamGroup.ExamGrpID=tblExamTaker.ExamGrpID AND tblExamTaker.ExamStatusID=tblExamStatus.ExamStatusID AND tblExamStatus.status = 'InProgress';

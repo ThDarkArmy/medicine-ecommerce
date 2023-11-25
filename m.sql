@@ -1,0 +1,3 @@
+select * from tblUniversity, tblExamGroup, tblExamStatus, tblExamTaker where tblUniversity.InstitutionID=tblExamGroup.InstitutionID AND tblExamGroup.ExamGrpID=tblExamTaker.ExamGrpID AND tblExamTaker.ExamStatusID=tblExamStatus.ExamStatusID AND tblExamStatus.status = 'InProgress';
+
+select * from tblExamTaker, tblExamStatus where tblExamTaker.ExamStatusID=tblExamStatus.ExamStatusID AND tblExamStatus.status = 'InProgress';
